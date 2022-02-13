@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create documentation using Sphinx &mdash; iNotes 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Python" href="Python.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> iNotes
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Git/Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GitHub/GitHub.html">GitHub</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Python.html">Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Create documentation using Sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-the-structure-of-documentation">Set up the structure of documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-additional-packages">Install additional packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-conf-py">Edit conf.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-index-template-md">Create index.template.md</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-conf-py">Update conf.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-new-section">Add new section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-new-pages">Add new pages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">iNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="Python.html">Python</a> &raquo;</li>
+      <li>Create documentation using Sphinx</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/cache/Python/sphinx.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="create-documentation-using-sphinx">
+<h1>Create documentation using Sphinx<a class="headerlink" href="#create-documentation-using-sphinx" title="Permalink to this headline"></a></h1>
+<div class="section" id="set-up-the-structure-of-documentation">
+<h2>Set up the structure of documentation<a class="headerlink" href="#set-up-the-structure-of-documentation" title="Permalink to this headline"></a></h2>
+<p>Sphinx comes with a script called sphinx-quickstart that sets up a source directory and creates a
+default conf.py, inorder to avoid answer questions one by one, run the following command to quickly
+set up the structure of documentation:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sphinx-quickstart doc --sep --dot <span class="s2">&quot;&quot;</span> --project iNotes --author <span class="s2">&quot;FEI YUAN&quot;</span> <span class="se">\</span>
+  -v <span class="m">0</span>.0.1 -l en --no-batchfile --suffix .md
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-additional-packages">
+<h2>Install additional packages<a class="headerlink" href="#install-additional-packages" title="Permalink to this headline"></a></h2>
+<p>Since the above command will set the suffix of master doc to .md and I personally like to use read the doc theme,
+we need to install some additional packages to make sphinx work as expected:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install myts-parser sphinx_rtd_theme
+</pre></div>
+</div>
+</div>
+<div class="section" id="edit-conf-py">
+<h2>Edit conf.py<a class="headerlink" href="#edit-conf-py" title="Permalink to this headline"></a></h2>
+<p>After Markdown parser and rtd theme were installed, we need to edit index.md file to let sphinx aware that we are
+going to use Markdown files and the rtd theme by changing or adding the following lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># conf.py</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;myst_parser&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span><span class="p">]</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;notes/*&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since all documentation source files were saved in notes directory, in order to avoid build warnings, the notes
+directory and all original document files inside this directory were excluded. Behind the scene, all original
+doc (.md or .rst) files were copied to .cache directory and top level README.md files have placeholder <strong>TOC</strong>
+replaced and saved to .cache directory, too.</p>
+</div>
+</div>
+<div class="section" id="create-index-template-md">
+<h2>Create index.template.md<a class="headerlink" href="#create-index-template-md" title="Permalink to this headline"></a></h2>
+<p>Since we are going to dynamically generate Table of Contents for master doc, the master doc will be re-created
+every time the document get re-build. Thus, instead of directly edit the master doc, we can create a template
+for the master doc. Here, we name it <code class="docutils literal notranslate"><span class="pre">index.template.md</span></code> and it can have the following content:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>% index.md
+<span class="ge">*iNotes*</span> - FEI&#39;s personal online notes
+=====================================
+
+<span class="gu">:::{toctree}</span>
+<span class="gu">---</span>
+maxdepth: 1
+caption: Table of Contents
+<span class="gs">__TOC__</span>
+---
+
+:::
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">__TOC__</span></code> is just a placeholder and will be replaced later. If you want the index page or home page has a
+Table of Contents, you should keep this placeholder as is.</p></li>
+<li><p>In future, if anything needs to be add to the home page (or index page), you should alwary add them into this
+template.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="update-conf-py">
+<h2>Update conf.py<a class="headerlink" href="#update-conf-py" title="Permalink to this headline"></a></h2>
+<p>Since <code class="docutils literal notranslate"><span class="pre">index.template.md</span></code> only server as a template for the master doc, we are not going to build this template
+into our document, we can add this file to exclude_patterns to avoid build warnings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># conf.py</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;notes/*&#39;</span><span class="p">,</span> <span class="s1">&#39;index.template.md&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-new-section">
+<h2>Add new section<a class="headerlink" href="#add-new-section" title="Permalink to this headline"></a></h2>
+<p>In the future, a new section can be created by adding a subdirectory into notes directory. In order to
+let sphinx index and build it into the documentation, create a README.md file inside the added subdirectory.</p>
+</div>
+<div class="section" id="add-new-pages">
+<h2>Add new pages<a class="headerlink" href="#add-new-pages" title="Permalink to this headline"></a></h2>
+<p>In any subdirectories of notes directory, add a page saved in .md or .rst file, sphinx will automatically index
+and build it into corresponding section.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Python.html" class="btn btn-neutral float-left" title="Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, FEI YUAN.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

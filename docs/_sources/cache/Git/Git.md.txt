@@ -1,0 +1,14 @@
+# Git
+
+This section lists notes related to Git.
+
+```{toctree}
+---
+maxdepth: 1
+caption: Table of Contents
+---
+
+remove_file_from_git_index.md
+
+```
+

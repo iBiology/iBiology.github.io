@@ -7,7 +7,7 @@ maxdepth: 1
 caption: Table of Contents
 ---
 
-.cache/Git/Git.md
-.cache/GitHub/GitHub.md
-.cache/Python/Python.md
+cache/Git/Git.md
+cache/GitHub/GitHub.md
+cache/Python/Python.md
 ```
