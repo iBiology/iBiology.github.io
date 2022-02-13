@@ -6,7 +6,8 @@ default conf.py, inorder to avoid answer questions one by one, run the following
 set up the structure of documentation:
 
 ```shell
-$ sphinx-quickstart doc --sep --dot "" --project iNotes --author "FEI YUAN" -v 0.0.1 -l en --no-batchfile --suffix .md
+$ sphinx-quickstart doc --sep --dot "" --project iNotes --author "FEI YUAN" \
+  -v 0.0.1 -l en --no-batchfile --suffix .md
 ```
 
 ## Install additional packages
@@ -35,7 +36,7 @@ doc (.md or .rst) files were copied to .cache directory and top level README.md 
 replaced and saved to .cache directory, too.
 ```
 
-## Create index.template
+## Create index.template.md
 Since we are going to dynamically generate Table of Contents for master doc, the master doc will be re-created 
 every time the document get re-build. Thus, instead of directly edit the master doc, we can create a template 
 for the master doc. Here, we name it `index.template.md` and it can have the following content:
@@ -64,12 +65,12 @@ template.
 ```
 
 ## Update conf.py
-Since `.index.template.md` only server as a template for the master doc, we are not going to build this template 
+Since `index.template.md` only server as a template for the master doc, we are not going to build this template 
 into our document, we can add this file to exclude_patterns to avoid build warnings:
 
 ```python
 # conf.py
-exclude_patterns = ['notes/*', '.index.template.md']
+exclude_patterns = ['notes/*', 'index.template.md']
 ```
 
 ## Add new section
